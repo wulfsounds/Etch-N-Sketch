@@ -1,15 +1,23 @@
 # Etch-N-Sketch
-
-Etch-A-Sketch
-
-JavaScript
--Created game sections
--Created ‘dead-space’ div to be used as a flex in CSS detail.
+/JavaScript
 -Created gameDisplay parameters and 16x16 grid.
 
-# Current issues:
+/HTML
+-Created game sections.
+-Added additional divs under #dashboard
 
-// Add the "active" class to only divs with a "box" class
+/CSS
+-Created ‘dead-space’ div to be used as a flex in CSS detail.
+-Added buttons for RESET, SETTINGS, CLASSIC, COLOR!
+
+
+# Current issues:
+-NA
+
+
+***FIXED***
+Thanks Matt Harris!
+<!-- // Add the "active" class to only divs with a "box" class
 let squares = document.getElementsByClassName('grid-item');
 for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', function draw(e) {
@@ -23,10 +31,14 @@ for (let i = 0; i < squares.length; i++) {
 Does not currently draw. Trying to add classList ‘active’ from CSS to the existing ‘grid-item’ class using ‘onclick’. 
 
 Uncaught ReferenceError: draw is not defined
-	at HTMLDivElement.onclick
+	at HTMLDivElement.onclick -->
 
 # Next Steps:
--Create a reset button.
+-Create Reset() function.
+  *Function should allow for reset on both game styles without resetting to default color (dot matrix).
 -Create and option for the EU to select the number of tiles to populate on the grid. 
-    *Up to 100 tiles.
+  *Up to 100 tiles.
+-Create Classic function.
+  *"Default" setting that will operate independently from reset.
 -Create a 'random color' option.
+  *When color button is pressed, screen color turns light grey (LCD Crystal Screen).

@@ -20,14 +20,15 @@ function makeRows(rows, cols) {
     for (c = 0; c < (rows * cols); c++) {
         let squares = document.createElement('div');
         display.appendChild(squares).className = "grid-item";
-        squares.setAttribute('onclick', 'draw()');
+        squares.setAttribute('onmouseover', 'draw()');
+        squares.setAttribute('onmouseover', 'draw(this)');
     }
 }
 
 // Add the "active" class to only divs with a "box" class
 let squares = document.getElementsByClassName('grid-item');
 for (let i = 0; i < squares.length; i++) {
-  squares[i].addEventListener('click', function draw(e) {
+  squares[i].addEventListener('mouseover', function draw(e) {
     // Used event delegation to target children of the grid
     if(e.target.matches('grid-item')) {
       e.classList.add('active');
@@ -35,13 +36,13 @@ for (let i = 0; i < squares.length; i++) {
   }, false);
 }
 
+function draw(e) {
+    if(e.classList.contains('grid-item')) {
+      e.classList.add('active');
+    }
+   }
+
 makeRows(16, 16);
 
-// function reset() {
-//     while (grid.firstChild) {
-//       grid.removeChild(grid.lastChild);
-//     }
-//     createGrid(squareSize);
-//   }
 
 
