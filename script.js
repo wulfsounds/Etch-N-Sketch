@@ -44,5 +44,24 @@ function draw(e) {
 
 makeRows(16, 16);
 
+function newGame(e) {
+  if(e.classList.contains('.grid-item.active')) {
+    e.classList.disabled('.active')
+  }
+}
 
+let activeGrid = document.getElementsByClassName('.grid-item.active');
+if(activeGrid) {
+  for (let i = 0; i < squares.length; i++) {
+      activeGrid[i].addEventListener('click', newGame());
+  }
+}
+for (let i = 0; i < squares.length; i++) {
+  activeGrid[i].addEventListener('click', function newGame(e) {
+    if(e.classList.contains('.grid-item.active')) {
+      !e.classList.add('.active');
+    }
+  }, true);
+}
 
+// newGame();
